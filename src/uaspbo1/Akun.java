@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 // Kelas dasar untuk akun bank
 class Akun {
-    private String nm;
-    private int nmrAkun;
+    private String nm; //nama
+    private int nmrAkun; //nomor akun
     protected double saldo;
 
     // Constructor untuk inisialisasi atribut
@@ -22,7 +22,7 @@ class Akun {
 
     // Accessor untuk mengubah nama
     public void setnm(String newName) {
-        nm = newName;
+        nm = newName; //nama baru
     }
 
     // Mutator untuk mendapatkan nomor akun
@@ -37,13 +37,13 @@ class Akun {
 
     // Method untuk menyetor uang
     public void deposit(double jml) {
-        saldo += jml;
+        saldo += jml; // jumlah 
     }
 
     // Method untuk menarik uang
     public void wd(double jml) throws kurang {
         if (jml <= saldo) {
-            saldo -= jml;
+            saldo -= jml; //withdraw
         } else {
             throw new kurang("Saldo tidak mencukupi!");
         }

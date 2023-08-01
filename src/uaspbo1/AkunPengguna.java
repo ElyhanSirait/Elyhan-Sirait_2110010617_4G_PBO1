@@ -30,10 +30,4 @@ public class AkunPengguna extends Akun {
     }
 }
 
-// Exception untuk menangani saldo tidak mencukupi
-class kurang extends Exception {
-    public kurang (String message) {
-        super(message);
-    }
-}
 
