@@ -75,14 +75,14 @@ public String getsaldo() {
 }
 ```
 
-7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `nama` dan `npm` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
+7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `nm` dan `saldo` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
 
 ```bash
 private String nm;
 protected double saldo;
 ```
 
-8. **Inheritance** adalah konsep di mana sebuah class bisa mewarisi property dan method dari class lain. Pada kode ini, `MahasiswaDetail` mewarisi `Mahasiswa` dengan sintaks `extends`.
+8. **Inheritance** adalah konsep di mana sebuah class bisa mewarisi property dan method dari class lain. Pada kode ini, `AkunPengguna` mewarisi `Akun` dengan sintaks `extends`.
 
 ```bash
 public class AkunPengguna extends Akun  {
@@ -90,7 +90,7 @@ public class AkunPengguna extends Akun  {
 }
 ```
 
-9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi, polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, method `displayInfo(String)` di `Mahasiswa` merupakan overloading method `displayInfo` dan `displayInfo` di `MahasiswaDetail` merupakan override dari method `displayInfo` di `Mahasiswa`.
+9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi, polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, `wd` di `AkunPengguna` merupakan override dari method `wd` di `Akun`.
 
 ```bash
     public void wd(double jml) throws kurang {
@@ -113,10 +113,26 @@ public class AkunPengguna extends Akun  {
         }
     }
 
-10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` dalam method `getFakultas` dan seleksi `switch` dalam method `getProdi`.
+10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `switch ` dalam method `cekPin` dan seleksi `if else` dalam method `cekPin`.
 
 ```bash
-switch (pilih) {
+    public boolean cekPin(int inputPin) {
+        return pin == inputPin;
+    }
+        // Jika akun ditemukan, tampilkan menu ATM
+        if (userAccount != null) {
+            while (true) {
+
+                System.out.println("========== Menu ATM ==========");
+                System.out.println("1. Cek Saldo");
+                System.out.println("2. Setor Uang");
+                System.out.println("3. Tarik Uang");
+                System.out.println("4. Ganti Nama");
+                System.out.println("5. Keluar");
+                System.out.print("Pilih menu (1-5): ");
+                int pilih = scanner.nextInt();
+
+                switch (pilih) {
                     case 1:
                         System.out.println("Nama Pengguna : " + userAccount.getnm());
                         System.out.println("Saldo Anda: Rp. " + userAccount.getsaldo());
@@ -145,7 +161,7 @@ switch (pilih) {
                         System.out.print("Masukkan nama baru: ");
                         String newName = scanner.nextLine();
                         userAccount.setnm(newName);
-                        System.out.println("Nama berhasil diubah!");
+                       System.out.println("Nama berhasil diubah!");
                         break;
                     case 5:
                         System.out.println("Terima kasih telah menggunakan layanan kami. Sampai jumpa!");
@@ -155,6 +171,10 @@ switch (pilih) {
                         System.out.println("Pilihan tidak valid. Silakan pilih menu (1-5).");
                         break;
                 }
+            }
+        } else {
+            System.out.println("Akun tidak ditemukan atau PIN salah!");
+        }
 ```
 
 11. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop `for` untuk meminta input dan menampilkan data.
@@ -183,7 +203,7 @@ switch (pilih) {
         int pin = scanner.nextInt();
 ```
 
-13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];` adalah contoh penggunaan array.
+13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `AkunPengguna[] users = {user1, user2};` adalah contoh penggunaan array.
 
 ```bash
         AkunPengguna user1 = new AkunPengguna("Elyhan", 987654, 1000000.0, 1234, 500000.0);
